@@ -28,17 +28,20 @@ if __name__ == '__main__':
             with open(p) as f:
                 js = json.load(f)
             im = cv2.imread(os.path.join(dir, classif, js['image']))
-            h, w,c = im.shape
-            row = {
-                'path': os.path.join(dir, classif),
-                'filename': os.path.join(classif, js['image']),
-                'width': w,
-                'height': h,
-                'class': classif,
-                'xmin': js['xmin'],
-                'ymin': js['ymin'],
-                'xmax': js['xmax'],
-                'ymax': js['ymax'],
-            }
-            csv = csv.append(row, ignore_index=True)
+            try:
+                h, w,c = im.shape
+                row = {
+                    'path': os.path.join(dir, classif),
+                    'filename': os.path.join(classif, js['image']),
+                    'width': w,
+                    'height': h,
+                    'class': classif,
+                    'xmin': js['xmin'],
+                    'ymin': js['ymin'],
+                    'xmax': js['xmax'],
+                    'ymax': js['ymax'],
+                }
+                csv = csv.append(row, ignore_index=True)
+            except AttributeError:
+                pass
     csv.to_csv('fish_finder.csv', index=False)

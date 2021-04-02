@@ -158,7 +158,7 @@ class Bounder(tk.Tk):
         return self.w.create_rectangle(self.x0, self.y0, x1, y1, outline="#ff0000")
 
     def getImageIndexes(self):
-        self.imagesIndex = os.listdir(self.images_path)
+        self.imagesIndex = [i for i in os.listdir(self.images_path) if i.lower()[-4:] in ['.jpg', '.png']]
         #self.imagesIndex = [i for i in self.imagesIndex if i not in self.bbox['image']]
         return self.imagesIndex
 
@@ -230,8 +230,9 @@ class Bounder(tk.Tk):
             self.bbox_coords['ymin'] = self.scaledBbox[1]
             self.bbox_coords['xmax'] = self.scaledBbox[2]
             self.bbox_coords['ymax'] = self.scaledBbox[3]
-            with open(os.path.splitext(self.bbox_coords['path'])[0] +".json", "w") as fp:
-                json.dump(self.bbox_coords, fp)
+            if self.bbox_coords['ymin'] != None:
+                with open(os.path.splitext(self.bbox_coords['path'])[0] +".json", "w") as fp:
+                    json.dump(self.bbox_coords, fp)
             print(self.bbox_coords)
             self.w.delete(self.current_image_obj)
             self.image_indexer += 1
