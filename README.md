@@ -2,6 +2,10 @@
 https://pythonprogramming.net/training-custom-objects-tensorflow-object-detection-api-tutorial/
 https://github.com/datitran/raccoon_dataset
 
+# Architecture
+- Azure Ubuntu Compute Instance DS12 and trained with....
+- tensorflow 1.15.5
+
 
 # Object Detection Steps
 1. Scrape Images
@@ -32,5 +36,8 @@ It will be assumed that each class that needs to be labeled will be in its own d
 
 #### Combine JSON files into csv format
 $ python json_to_csv.py data
+
+## 3. Install Tensorflow & object detection API
+pip install tensorflow==1.15 
 
 
