@@ -106,5 +106,14 @@ $ python3 legacy/train.py --logtostderr --train_dir=training/<br>
 ```
 
 ## 6. Using the trained model
-
+##### Export inference graph
+Choose the model with the highest ckpt number in training directory to export...
+'''
+$ python export_inference_graph.py \
+    --input_type image_tensor \
+    --pipeline_config_path training/ssd_mobilenet_v1_pets.config \
+    --trained_checkpoint_prefix training/model.ckpt-233\
+    --output_directory fish_finder_inference_graph
+'''
+Using an older version of object_detection_tutorial.ipynb found within the colab directory we will need to make many changes to this to get this to work. Refer to the notebook by the same name in the directory...
 
