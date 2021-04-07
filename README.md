@@ -87,7 +87,7 @@ $ wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_c
 $ nano training/object-detection.pbtxt
 item {
   id: 1
-  name: 'macncheese'
+  name: '#rainbowtrout'
 }
 $ cp training/object-detection.pbtxt data
 ```
