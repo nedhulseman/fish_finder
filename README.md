@@ -31,9 +31,9 @@ $ bbox_drawer.py
 It will be assumed that each class that needs to be labeled will be in its own directory within data. e.g.
 
 #-- Data. 
-|  #--- Class #1. 
-|  #--- Class #2. 
-|  #--- Class.... #n. 
+|  #--- Class #1<br>
+|  #--- Class #2<br>
+|  #--- Class.... #n<br> 
 
 #### Combine JSON files into csv format
 $ python json_to_csv.py data
